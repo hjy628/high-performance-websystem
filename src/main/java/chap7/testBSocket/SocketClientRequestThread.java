@@ -46,7 +46,7 @@ public class SocketClientRequestThread implements Runnable{
             //阻塞，直到SocketClientDaemon完成所有线程的启动，然后所有线程一起发送请求
             this.countDownLatch.await();
             //发送请求信息
-            clientRequest.write(("这是第"+this.clientIndex+"  个客户端的请求").getBytes());
+            clientRequest.write(("这是第"+this.clientIndex+"  个客户端的请求,over").getBytes());
             clientRequest.flush();
             //在这里等待，直到服务器返回信息
             SocketClientRequestThread.LOGGER.info("第"+this.clientIndex+"个客户端的请求发送完成，等待服务器返回信息");
